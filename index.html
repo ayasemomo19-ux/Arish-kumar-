@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arish Kumar K | Portfolio</title>
+  <style>
+    /* RESET */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #dff6ff, #f7f9fc);
+      color:#222;
+      line-height:1.6;
+      overflow-x:hidden;
+      opacity:0; 
+      animation: pageFade 1.5s forwards; /* Opening animation */
+    }
+    h1,h2,h3 {color:#0aa1dd;}
+
+    /* NAVBAR */
+    nav {
+      position:fixed; top:0; left:0; width:100%;
+      background:rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      display:flex; justify-content:center; gap:2rem;
+      padding:1rem; z-index:1000;
+    }
+    nav a {
+      color:#0aa1dd; text-decoration:none;
+      font-weight:600; position:relative;
+      transition: color 0.3s;
+    }
+    nav a:hover {color:#0077b6;}
+    nav a::after {
+      content:""; position:absolute; left:0; bottom:-5px;
+      width:0; height:3px; background:#0aa1dd;
+      transition:0.3s;
+    }
+    nav a:hover::after {width:100%;}
+
+    /* HERO */
+    header {
+      min-height:100vh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    header img {
+      width:150px; height:150px;
+      border-radius:50%; border:4px solid #0aa1dd;
+      animation: float 6s infinite ease-in-out;
+    }
+    header h1 {
+      font-size:3rem; margin-top:1rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+    header p {
+      font-size:1.2rem; margin-top:0.5rem;
+      opacity:0; animation: fadeUp 1.5s 0.5s forwards;
+    }
+
+    /* SECTIONS */
+    section {padding:5rem 10%; position:relative;}
+    section h2 {text-align:center; margin-bottom:2rem; font-size:2rem;}
+
+    /* ABOUT */
+    #about p {max-width:700px; margin:auto; text-align:center;}
+
+    /* SKILLS */
+    .skills {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:1rem;
+    }
+    .skill {
+      background:rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      padding:1.5rem; border-radius:15px;
+      text-align:center; font-weight:600;
+      transition:transform 0.3s, box-shadow 0.3s;
+      animation: fadeUp 1s forwards;
+    }
+    .skill:hover {
+      transform:scale(1.1) rotate(2deg);
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* SERVICES */
+    .services {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.5rem;
+    }
+    .service {
+      background:rgba(255,255,255,0.5);
+      padding:2rem; border-radius:20px;
+      text-align:center; transition:transform 0.4s;
+    }
+    .service:hover {transform:translateY(-10px) scale(1.05);}
+
+    /* TIMELINE */
+    .timeline {border-left:3px solid #0aa1dd; padding-left:2rem;}
+    .timeline-item {margin:2rem 0; opacity:0; animation: fadeUp 1s forwards;}
+    .timeline-item h3 {color:#0aa1dd;}
+
+    /* PROJECTS */
+    .projects {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem;
+    }
+    .project-card {
+      position:relative; overflow:hidden;
+      border-radius:15px; cursor:pointer;
+      animation: fadeUp 1s forwards;
+    }
+    .project-card img {
+      width:100%; display:block; transition:transform 0.5s;
+    }
+    .project-card:hover img {transform:scale(1.2);}
+    .overlay {
+      position:absolute; top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.5); color:#fff;
+      display:flex; justify-content:center; align-items:center;
+      opacity:0; transition:opacity 0.5s;
+    }
+    .project-card:hover .overlay {opacity:1;}
+
+    /* CERTIFICATES */
+    .certificates {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .certificate-card {
+      background:rgba(255,255,255,0.6);
+      border-radius:15px; overflow:hidden;
+      text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.4s;
+    }
+    .certificate-card img {
+      width:100%; display:block;
+      transition: transform 0.5s;
+    }
+    .certificate-card:hover {transform:scale(1.05);}
+    .certificate-card:hover img {transform:scale(1.1);}
+    .certificate-card h3 {padding:1rem; color:#0aa1dd;}
+
+    /* CONTACT */
+    .contact {text-align:center;}
+    .contact p {margin:0.5rem 0;}
+
+    /* FOOTER */
+    footer {
+      text-align:center; padding:2rem;
+      background:#0aa1dd; color:#fff;
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideIn {from{transform:translateY(-50px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+    @keyframes fadeUp {from{transform:translateY(30px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+    @keyframes float {0%,100%{transform:translateY(0);} 50%{transform:translateY(-20px);}}
+    @keyframes pageFade {from{opacity:0;} to{opacity:1;}}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
+    <a href="#timeline">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <img src="https://i.postimg.cc/kXbW50MR/image.jpg" alt="Profile Picture"> <!-- Replace with your PNG -->
+    <h1>Hi, I am Arish Kumar K</h1>
+    <p>A Passionate Computer Science Graduate</p>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>A passionate computer science graduate with creativity, problem-solving skills, and a love for technology. Skilled in web development, programming, and design — I aim to build impactful digital solutions.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">C</div><div class="skill">C++</div><div class="skill">Python</div><div class="skill">JavaScript</div>
+      <div class="skill">HTML5</div><div class="skill">CSS3</div><div class="skill">React.js</div><div class="skill">Bootstrap</div>
+      <div class="skill">MySQL</div><div class="skill">SQLite</div><div class="skill">Figma</div><div class="skill">Canva</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services">
+      <div class="service">🌐 Web Development</div>
+      <div class="service">🎨 UI/UX Design</div>
+      <div class="service">📑 Portfolio & Resume Websites</div>
+      <div class="service">📱 Basic App Prototypes</div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <h2>Education & Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item"><h3>2024–2027</h3><p>B.Sc. Computer Science – Bharathiar University</p></div>
+      <div class="timeline-item"><h3>2024</h3><p>Web Development Intern – CodeCraft Technologies</p></div>
+      <div class="timeline-item"><h3>2023–Present</h3><p>Freelance Web Designer</p></div>
+      <div class="timeline-item"><h3>2024</h3><p>HSC – Bharathi Matric Hr. Sec. School</p></div>
+      <div class="timeline-item"><h3>2022</h3><p>SSLC – Bharathi Matric School</p></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="project1.png" alt="Project 1">
+        <div class="overlay"><h3>Portfolio Website</h3></div>
+      </div>
+      <div class="project-card">
+        <img src="project2.png" alt="Project 2">
+        <div class="overlay"><h3>Library Management System</h3></div>
+      </div>
+      <div class="project-card">
+        <img src="project3.png" alt="Project 3">
+        <div class="overlay"><h3>E-Commerce Website</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificates">
+      <div class="certificate-card">
+        <img src="https://i.postimg.cc/gJyk5KGJ/Screenshot-20250905-194129.jpg" alt="Certificate 1">
+        <h3>Web Development Certificate</h3>
+      </div>
+      <div class="certificate-card">
+        <img src="https://i.postimg.cc/m2g2XMJL/Screenshot-20250904-161727.jpg" alt="Certificate 2">
+        <h3>Python Programming Certificate</h3>
+      </div>
+      <div class="certificate-card">
+        <img src="certificate3.png" alt="Certificate 3">
+        <h3>UI/UX Design Certificate</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>📧 Email: arishkumar@gmail.com</p>
+      <p>📱 Phone: +91 89404 89897</p>
+      <p>🔗 LinkedIn: linkedin.com/in/arishkumar</p>
+      <p>💻 GitHub: github.com/arishkumar</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Arish Kumar K | Designed with ❤️
+  </footer>
+</body>
+</html>
